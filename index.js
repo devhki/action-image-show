@@ -279,9 +279,7 @@ class ImageShow {
 		return new Promise((resolve, reject) => {
 			let loader = new Image();
 			loader.onload = () => {
-				setTimeout(() => {
-					resolve(loader);
-				}, Math.random() * 1000 + 1000)
+				resolve(loader);
 			}
 			loader.onerror = () => {
 				reject('Couldn\'t load the image');
