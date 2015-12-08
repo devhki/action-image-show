@@ -60,22 +60,85 @@
 			position : absolute;
 			display : block;
 			top: 14px;
-			right: 364px;
+			right : 14px;
 			bottom: 14px;
 			left: 14px;
 			background-position: center;
 			background-size: contain;
 			background-repeat: no-repeat;
+			transition : right 400ms ease-in-out;
+		}
+
+		.image.description-visible .image__image {
+			right: 364px;
 		}
 
 		.image__text-box {
 			position : absolute;
 			top : 0;
-			right: 0;
+			right: calc(-350px - 28px - 28px);
 			bottom: 0;
 			width : calc(350px - 28px - 28px);
 			background-color : #fff;
 			padding : 28px;
+			transition : right 400ms ease-in-out;
+		}
+
+		.image.description-visible .image__text-box {
+			right : 0;
+		}
+
+		.image__close {
+			position : absolute;
+			display : block;
+			top : 14px;
+			right : 14px;
+			width : 28px;
+			height : 28px;
+			background-color : #f00;
+		}
+
+		.image__toggle-description {
+			position : absolute;
+			display : block;
+			top : 14px;
+			right : calc(14px + 28px);
+			width : 28px;
+			height : 28px;
+			background-color : #f0f;
+		}
+
+		.image__previous,
+		.image__next {
+			position : absolute;
+			display : block;
+			top : 0;
+			bottom : 0;
+			width : calc(28px * 2);
+			background-color : rgba(255, 0, 0, 0.5);
+		}
+
+		.image__previous {
+			left : 0;
+		}
+
+		.image.description-visible .image__next {
+			right : 350px;
+		}
+
+		.image__next {
+			right : 0;
+		}
+
+		.image__loading {
+			position : absolute;
+			display : block;
+			top : 50%;
+			right : calc(350px / 2);
+			width : 28px;
+			height : 28px;
+			margin : -14px -14px 0 0;
+			background-color : #f0f;
 		}
 
 	</style>
@@ -123,14 +186,14 @@
 		];
 
 		// console.log(JSON.parse(JSON.stringify(data)));
-		document.write('<div class="a-image-show" data-image-show-overlay-class="overlay" data-image-show=' + "'" + JSON.stringify(data) + "'" + '></div>');
+		document.write('<div class="a-image-show" data-image-show-overlay-class="overlay"  data-image-show-loaded-class="loaded" data-image-show=' + "'" + JSON.stringify(data) + "'" + '></div>');
 	</script>
 
 	<script type="text/x-template" class="a-image-show__image-template">
 		{{ #image }}
 			<div class="image">
 				<div class="image__image a-image-show__close" style="background-image:url({{{ urls.view }}})"></div>
-				<div class="image__text-box">
+				<div class="image__text-box a-image-show__load-animation-container">
 					<h2 class="image__title">{{{ title }}}</h2>
 					<ul class="image__meta">
 					{{ #meta }}
@@ -143,10 +206,16 @@
 					{{{ description }}}
 					</div>
 				</div>
-				<a href="#previous" class="a-image-show__previous"></a>
-				<a href="#next" class="a-image-show__next"></a>
+				<a href="#previous" class="image__previous a-image-show__previous"></a>
+				<a href="#next" class="image__next a-image-show__next"></a>
+				<a href="#close" class="image__close a-image-show__close"></a>
+				<a href="#toggle-description" class="image__toggle-description a-image-show__toggle-description"></a>
 			</div>
 		{{ /image }}
+	</script>
+
+	<script type="text/x-template" class="a-image-show__load-animation-template">
+		<div class="image__loading"></div>
 	</script>
 
 	<a class="a-image-show__link" data-image-show-ref="1" href="#linktoimagemaybe">Img 1</a>
