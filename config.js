@@ -16,10 +16,10 @@ System.config({
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "core-js": "npm:core-js@1.2.6",
-    "devhki/util-animating": "github:devhki/util-animating@0.0.4",
+    "devhki/util-animating": "github:devhki/util-animating@0.0.5",
     "jquery": "github:components/jquery@1.11.3",
     "mustache": "npm:mustache@2.2.0",
-    "github:devhki/util-animating@0.0.4": {
+    "github:devhki/util-animating@0.0.5": {
       "Modernizr/Modernizr": "github:Modernizr/Modernizr@2.8.3",
       "jquery": "github:components/jquery@1.11.3"
     },

@@ -1,6 +1,6 @@
 {
   "name": "action-image-show",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "jspm": {
     "dependencies": {
-      "devhki/util-animating": "github:devhki/util-animating@^0.0.4",
+      "devhki/util-animating": "github:devhki/util-animating@^0.0.5",
       "jquery": "github:components/jquery@1",
       "mustache": "npm:mustache@^2.2.0"
     },
