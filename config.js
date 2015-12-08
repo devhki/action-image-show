@@ -16,11 +16,11 @@ System.config({
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "core-js": "npm:core-js@1.2.6",
-    "devhki/util-animating": "github:devhki/util-animating@0.0.1",
+    "devhki/util-animating": "github:devhki/util-animating@0.0.4",
     "jquery": "github:components/jquery@1.11.3",
-    "github:devhki/util-animating@0.0.1": {
-      "jquery": "github:components/jquery@1.11.3",
-      "modernizr": "github:Modernizr/Modernizr@3.2.0"
+    "github:devhki/util-animating@0.0.4": {
+      "Modernizr/Modernizr": "github:Modernizr/Modernizr@2.8.3",
+      "jquery": "github:components/jquery@1.11.3"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"

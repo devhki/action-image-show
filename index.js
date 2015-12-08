@@ -1,5 +1,7 @@
 // @todo add unique
+// @todo validate this.images data maybe?
 import $ from 'jquery';
+import Animating from 'devhki/util-animating';
 
 let initCount = 0;
 
@@ -11,6 +13,7 @@ class ImageShow {
 		this.unique = ImageShow.MODULE_NAME + 'c' + initCount;
 		this.linkClass = $settingsElement.data().imageShowLinkClass || ImageShow.MODULE_NAME + '__link';
 		this.images = $settingsElement.data().imageShow;
+		this.$overlay = null;
 
 		if ( !(this.images instanceof Array) || !this.images.length ) {
 			console.warn('ImageShow: data-image-show=<json> not set, dying silently...');
@@ -22,8 +25,6 @@ class ImageShow {
 
 		this._init();
 
-		//@todo validate this.images data maybe?
-
 		initCount++;
 	}
 
@@ -33,7 +34,7 @@ class ImageShow {
 		let image = this._findImage(ref);
 
 		if ( !image.urls || !image.urls.view ) {
-			console.warn('ImageShow: Image "' + image.ref + '" is missing view url (image.urls.view), dying silently...');
+			console.warn('ImageShow: Image "' + image.ref + '" is missing view url (image.urls.view), not gonna do anything...');
 			return false;
 		}
 
@@ -46,7 +47,7 @@ class ImageShow {
 	}
 
 	hide() {
-
+		this._hideOverlay();
 	}
 
 	// Private methods
@@ -83,7 +84,40 @@ class ImageShow {
 	}
 
 	_showOverlay() {
-		console.log('DRAW OVERLAY');
+		if ( this.$overlay ) {
+			return false; // Overlay already exists
+		}
+
+		this.$overlay = $('<div/>');
+		this.$overlay
+			.addClass('overlay')
+			.css('opacity', 0)
+			.appendTo('body');
+
+		this.$overlay.one('click.' + this.unique, () => {
+			this.hide();
+		});
+
+		Animating.transition(this.$overlay, {}, {
+			opacity : 1
+		});
+
+	}
+
+	_hideOverlay() {
+		if ( !this.$overlay ) {
+			return false;
+		}
+
+		this.$overlay.off('.' + this.unique);
+
+		Animating.transition(this.$overlay, {}, {
+			opacity : 0
+		}).then(() => {
+			this.$overlay.remove();
+			this.$overlay = null;
+		});
+
 	}
 
 	_showImage(image) {
