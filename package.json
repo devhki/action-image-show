@@ -14,7 +14,8 @@
   "jspm": {
     "dependencies": {
       "devhki/util-animating": "github:devhki/util-animating@^0.0.4",
-      "jquery": "github:components/jquery@1"
+      "jquery": "github:components/jquery@1",
+      "mustache": "npm:mustache@^2.2.0"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",

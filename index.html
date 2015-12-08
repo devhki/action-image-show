@@ -1,93 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<meta charset="utf-8">
-<title>Image show</title>
-<meta name="description" content="">
-<meta name="author" content="">
+	<meta charset="utf-8">
+	<title>Image show</title>
+	<meta content="" name="description">
+	<meta content="" name="author">
 
-<style media="screen">
-	.overlay {
-		position : fixed;
-		top : 0;
-		right : 0;
-		bottom : 0;
-		left : 0;
-		background-color : rgba(0, 0, 0, 0.98);
-	}
-</style>
+	<style media="screen">
+		html,
+		body {
+			margin: 0;
+		}
 
+		a.a-image-show__link {
+			display: block;
+			width: 200px;
+			height: 200px;
+			margin: 10px;
+			padding: 10px;
+			float: left;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+		a.a-image-show__link:nth-of-type(1) {
+			background-image: url(/images/demo1-view.png);
+		}
+		a.a-image-show__link:nth-of-type(2) {
+			background-image: url(/images/demo2-view.png);
+		}
+		a.a-image-show__link:nth-of-type(3) {
+			background-image: url(/images/demo3-view.png);
+		}
+		a.a-image-show__link:nth-of-type(4) {
+			background-image: url(/images/demo4-view.png);
+		}
 
-<script>
-	// Dummy json
-	var data = [
-		{
-			ref : 1,
-			urls : {
-				 view : 'http://placehold.it/800x801',
-				 download : 'http://placehold.it/1920x1081'
-			},
-			title : 'Quis non odit sordidos, vanos, leves, futtiles',
-			description : 'Quodsi ipsam honestatem undique pertectam atque absolutam. Expectoque quid ad id, quod quaerebam, respondeas. Vide igitur ne non debeas verbis nostris uti, sententiis tuis. Levatio igitur vitiorum magna fit in iis, qui habent ad virtutem progressionis aliquantum. Odium autem et invidiam facile vitabis. Istam voluptatem, inquit, Epicurus ignorat?',
-			meta: [
-				'Numero 200',
-				'20. 12. 2013'
-			]
-		}, {
-			ref : 2,
-			urls : {
-				 view : 'http://placehold.it/800x802',
-				 download : 'http://placehold.it/1920x1082'
-			},
-			title : 'Nunc omni virtuti vitium',
-			description : 'In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret. Ut id aliis narrare gestiant?',
-			meta: [
-				'Numero 200',
-				'20. 12. 2013'
-			]
-		}, {
-			ref : 3,
-			urls : {
-				 view : 'http://placehold.it/800x803',
-				 download : 'http://placehold.it/1920x1083'
-			},
-			title : 'Rhetorice igitur, inquam, nos mavis quam',
-			description : 'Cupit enim dícere nihil',
-			meta: [
-				'Numero 200',
-				'20. 12. 2013'
-			]
-		}, {
-			ref : 4,
-			urls : {
-				 view : 'http://placehold.it/800x804',
-				 download : 'http://placehold.it/1920x1084'
-			},
-			title : 'Eaedem enim',
-			description : 'Ergo ita: non posse honeste',
-			meta: [
-				'Numero 200',
-				'20. 12. 2013'
-			]
-		 }
-	];
+		.overlay {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
 
-	// console.log(JSON.parse(JSON.stringify(data)));
-	document.write('<div class="a-image-show" data-image-show=' + "'" + JSON.stringify(data) + "'" + '></div>');
+		.image {
+			position: fixed;
+			display: block;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: 0;
+			padding: 0;
+		}
 
-</script>
+		.image__image {
+			position : absolute;
+			display : block;
+			top: 14px;
+			right: 364px;
+			bottom: 14px;
+			left: 14px;
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
 
+		.image__text-box {
+			position : absolute;
+			top : 0;
+			right: 0;
+			bottom: 0;
+			width : calc(350px - 28px - 28px);
+			background-color : #fff;
+			padding : 28px;
+		}
 
-<a href="#linktoimagemaybe" class="a-image-show__link" data-image-show-ref="1">Img 1</a>
-<a href="#linktoimagemaybe" class="a-image-show__link" data-image-show-ref="2">Img 2</a>
-<a href="#linktoimagemaybe" class="a-image-show__link" data-image-show-ref="3">Img 3</a>
-<a href="#linktoimagemaybe" class="a-image-show__link" data-image-show-ref="4">Img 4</a>
+	</style>
 
+	<script>
+		// Dummy json
+		var data = [
+			{
+				ref: 1,
+				urls: {
+					view: '/images/demo1-view.png',
+					download: '/images/demo1.jpg'
+				},
+				title: 'Quis non odit sordidos, vanos, leves, futtiles',
+				description: '<p>Quodsi ipsam honestatem undique pertectam atque absolutam. Expectoque quid ad id, quod quaerebam, respondeas. Vide igitur ne non debeas verbis nostris uti, sententiis tuis. Levatio igitur vitiorum magna fit in iis, qui habent ad virtutem progressionis aliquantum. Odium autem et invidiam facile vitabis. Istam voluptatem, inquit, Epicurus ignorat?</p>',
+				meta: ['Numero 200', '20. 12. 2013']
+			}, {
+				ref: 2,
+				urls: {
+					view: '/images/demo2-view.png',
+					download: '/images/demo2.jpg'
+				},
+				title: 'Nunc omni virtuti vitium',
+				description: '<p>In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret. Ut id aliis narrare gestiant?</p>',
+				meta: ['Numero 200', '20. 12. 2013']
+			}, {
+				ref: 3,
+				urls: {
+					view: '/images/demo3-view.png',
+					download: '/images/demo3.jpg'
+				},
+				title: 'Rhetorice igitur, inquam, nos mavis quam',
+				description: '<p>Cupit enim dícere nihil</p>',
+				meta: ['Numero 200', '20. 12. 2013']
+			}, {
+				ref: 4,
+				urls: {
+					view: '/images/demo4-view.png',
+					download: '/images/demo4.jpg'
+				},
+				title: 'Eaedem enim',
+				description: '<p>Ergo ita: non posse honeste</p>',
+				meta: ['Numero 200', '20. 12. 2013']
+			}
+		];
 
-<script src="jspm_packages/system.js"></script>
-<script src="config.js"></script>
-<script type="text/javascript">
-	System.import('main');
-</script>
+		// console.log(JSON.parse(JSON.stringify(data)));
+		document.write('<div class="a-image-show" data-image-show-overlay-class="overlay" data-image-show=' + "'" + JSON.stringify(data) + "'" + '></div>');
+	</script>
+
+	<script type="text/x-template" class="a-image-show__image-template">
+		{{ #image }}
+			<div class="image">
+				<div class="image__image a-image-show__close" style="background-image:url({{{ urls.view }}})"></div>
+				<div class="image__text-box">
+					<h2 class="image__title">{{{ title }}}</h2>
+					<ul class="image__meta">
+					{{ #meta }}
+						<li class="image__meta__item">
+						{{ . }}
+						</li>
+					{{ /meta }}
+					</ul>
+					<div class="image__description">
+					{{{ description }}}
+					</div>
+				</div>
+				<a href="#previous" class="a-image-show__previous"></a>
+				<a href="#next" class="a-image-show__next"></a>
+			</div>
+		{{ /image }}
+	</script>
+
+	<a class="a-image-show__link" data-image-show-ref="1" href="#linktoimagemaybe">Img 1</a>
+	<a class="a-image-show__link" data-image-show-ref="2" href="#linktoimagemaybe">Img 2</a>
+	<a class="a-image-show__link" data-image-show-ref="3" href="#linktoimagemaybe">Img 3</a>
+	<a class="a-image-show__link" data-image-show-ref="4" href="#linktoimagemaybe">Img 4</a>
+
+	<script src="jspm_packages/system.js"></script>
+	<script src="config.js"></script>
+	<script type="text/javascript">
+		System.import('main');
+	</script>
 
 </html>
