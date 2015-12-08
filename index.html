@@ -11,6 +11,70 @@
 </style>
 
 
+<script>
+	// Dummy json
+	var data = [
+		{
+			ref : 1,
+			urls : {
+				 view : 'http://placehold.it/800x801',
+				 download : 'http://placehold.it/1920x1081'
+			},
+			title : 'Quis non odit sordidos, vanos, leves, futtiles',
+			description : 'Quodsi ipsam honestatem undique pertectam atque absolutam. Expectoque quid ad id, quod quaerebam, respondeas. Vide igitur ne non debeas verbis nostris uti, sententiis tuis. Levatio igitur vitiorum magna fit in iis, qui habent ad virtutem progressionis aliquantum. Odium autem et invidiam facile vitabis. Istam voluptatem, inquit, Epicurus ignorat?',
+			meta: [
+				'Numero 200',
+				'20. 12. 2013'
+			]
+		}, {
+			ref : 2,
+			urls : {
+				 view : 'http://placehold.it/800x802',
+				 download : 'http://placehold.it/1920x1082'
+			},
+			title : 'Nunc omni virtuti vitium',
+			description : 'In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret. Ut id aliis narrare gestiant?',
+			meta: [
+				'Numero 200',
+				'20. 12. 2013'
+			]
+		}, {
+			ref : 3,
+			urls : {
+				 view : 'http://placehold.it/800x803',
+				 download : 'http://placehold.it/1920x1083'
+			},
+			title : 'Rhetorice igitur, inquam, nos mavis quam',
+			description : 'Cupit enim dícere nihil',
+			meta: [
+				'Numero 200',
+				'20. 12. 2013'
+			]
+		}, {
+			ref : 4,
+			urls : {
+				 view : 'http://placehold.it/800x804',
+				 download : 'http://placehold.it/1920x1084'
+			},
+			title : 'Eaedem enim',
+			description : 'Ergo ita: non posse honeste',
+			meta: [
+				'Numero 200',
+				'20. 12. 2013'
+			]
+		 }
+	];
+
+	// console.log(JSON.parse(JSON.stringify(data)));
+	document.write('<div class="a-image-show" data-image-show=' + "'" + JSON.stringify(data) + "'" + '></div>');
+
+</script>
+
+
+<a href="#linktoimagemaybe" class="a-image-show__link" data-image-show-ref="1">Img 1</a>
+<a href="#linktoimagemaybe" class="a-image-show__link" data-image-show-ref="2">Img 2</a>
+<a href="#linktoimagemaybe" class="a-image-show__link" data-image-show-ref="3">Img 3</a>
+<a href="#linktoimagemaybe" class="a-image-show__link" data-image-show-ref="4">Img 4</a>
 
 
 <script src="jspm_packages/system.js"></script>
