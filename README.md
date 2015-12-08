@@ -36,5 +36,5 @@ Initing module
 Links
 
 ```
-<a href="#" data-image-show-ref="<string|ref>">This link will open a image-show<a>
+<a href="#" data-image-show-ref="<string|ref>">This link will open an image-show<a>
 ```
