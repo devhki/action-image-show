@@ -250,6 +250,8 @@ class ImageShow {
 			return false;
 		});
 
+		this._updateDescriptionVisibility();
+
 		if ( animate ) {
 			ANIM.transition($image, {
 				opacity : 0
@@ -257,10 +259,7 @@ class ImageShow {
 				opacity: 1
 			}).then(() => {
 				$image.css('opacity', '');
-				this._updateDescriptionVisibility();
 			});
-		} else {
-			this._updateDescriptionVisibility();
 		}
 	}
 
